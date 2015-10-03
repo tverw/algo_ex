@@ -34,9 +34,9 @@ import static org.junit.Assert.*;
  *
  * @author Terhi Verwijnen <terhi.verwijnen@gmail.com>
  */
-public class CompareThreeIntsTest {
+public class NumberComparisonUtilsTest {
     
-    public CompareThreeIntsTest() {
+    public NumberComparisonUtilsTest() {
     }
     
     @BeforeClass
@@ -56,16 +56,26 @@ public class CompareThreeIntsTest {
     }
 
     /**
-     * Test of compare method, of class CompareThreeInts.
+     * Test of compareThreeIntegers method, of class NumberComparisonUtils.
      */
     @Test
-    public void testCompare() {
-        assertEquals(true, CompareThreeInts.compare(0, 0, 0));
-        assertEquals(false, CompareThreeInts.compare(0, 2, 0));
-        assertEquals(false, CompareThreeInts.compare(51, 0, -117));
-        assertEquals(true, CompareThreeInts.compare(25, 25, 25));
-        assertEquals(false, CompareThreeInts.compare(5, 7, 7));
-        assertEquals(false, CompareThreeInts.compare(4, 4, 0));
+    public void testCompareThreeIntegers() {
+        assertEquals(true, NumberComparisonUtils.compareThreeIntegers(0, 0, 0));
+        assertEquals(false, NumberComparisonUtils.compareThreeIntegers(0, 2, 0));
+        assertEquals(false, NumberComparisonUtils.compareThreeIntegers(51, 0, -117));
+        assertEquals(true, NumberComparisonUtils.compareThreeIntegers(25, 25, 25));
+        assertEquals(false, NumberComparisonUtils.compareThreeIntegers(5, 7, 7));
+        assertEquals(false, NumberComparisonUtils.compareThreeIntegers(4, 4, 0));
+    }
+    
+    @Test
+    public void TestArePositiveAndMaxOne() {
+        assertEquals(true, NumberComparisonUtils.arePositiveAndMaxOne(0.12, 0.45));
+        assertEquals(false, NumberComparisonUtils.arePositiveAndMaxOne(-0.01, 0.45));
+        assertEquals(true, NumberComparisonUtils.arePositiveAndMaxOne(0, 1));
+        assertEquals(false, NumberComparisonUtils.arePositiveAndMaxOne(0.12, 1.01));
+        assertEquals(true, NumberComparisonUtils.arePositiveAndMaxOne(0.01, 0.99));
+        assertEquals(false, NumberComparisonUtils.arePositiveAndMaxOne(Double.MIN_NORMAL, Double.MAX_VALUE));
     }
 
 
