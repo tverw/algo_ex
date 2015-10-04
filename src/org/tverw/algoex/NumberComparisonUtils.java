@@ -24,7 +24,7 @@
 package org.tverw.algoex;
 
 /**
- * A collections of methods for comparing numbers.
+ * A collection of methods for comparing numbers.
  *
  * @author Terhi Verwijnen <terhi.verwijnen@gmail.com>
  */
