@@ -35,22 +35,22 @@ import static org.junit.Assert.*;
  * @author Terhi Verwijnen <terhi.verwijnen@gmail.com>
  */
 public class MyMathTest {
-    
+
     public MyMathTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -76,5 +76,13 @@ public class MyMathTest {
         assertEquals(6, MyMath.lg_rec(68));
         assertEquals(12, MyMath.lg_rec(4200));
     }
-    
+
+    /**
+     * Test of histogram method, of class MyMath.
+     */
+    @Test
+    public void testHistogram() {
+        assertArrayEquals(new int[]{4, 3, 1}, MyMath.histogram(new int[]{0, 0, 0, 1, 2, 1, 1, 0}, 3));
+        assertArrayEquals(new int[]{1,3,1,1,2,2,1}, MyMath.histogram(new int[]{0,1,4,1,7,4,5,2,3,6,1,5}, 7));
+    }
 }

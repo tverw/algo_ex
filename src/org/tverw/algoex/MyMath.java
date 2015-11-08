@@ -23,31 +23,34 @@
  */
 package org.tverw.algoex;
 
-/** 
+/**
  * A collection of methods for mathematics.
  *
  * @author Terhi Verwijnen <terhi.verwijnen@gmail.com>
  */
 public class MyMath {
-    
+
     /**
      * Returns the largest integer not larger than log2 for given integer.
+     *
      * @param n The given integer.
      * @return The result as integer.
      */
-     public static int lg(int n) {
+    public static int lg(int n) {
         int tulos = 0;
-        
+
         while (n > 1) {
             n /= 2;
             tulos++;
         }
-        
+
         return tulos;
     }
-    
-     /**
-     * Returns the largest integer not larger than log2 for given integer recursively.
+
+    /**
+     * Returns the largest integer not larger than log2 for given integer
+     * recursively.
+     *
      * @param n The given integer.
      * @return The result as integer.
      */
@@ -55,8 +58,27 @@ public class MyMath {
         if (n == 1) {
             return 0;
         } else {
-            return 1 + lg_rec(n/2);
+            return 1 + lg_rec(n / 2);
         }
     }
-    
+
+    /**
+     * Returns a histogram of values in given int array. Integers in given int
+     * array need to be positive or zero. Only values that are smaller than n
+     * are considered.
+     *
+     * @param a Int array of positive integers.
+     * @param n Length of histogram array.
+     * @return Histogram array of given int array where an entry corresponds to
+     * the number of times a values appears in int array a.
+     */
+    public static int[] histogram(int[] a, int n) {
+        int[] hist = new int[n];
+        for (int i : a) {
+            if (i < n) {
+                hist[i]++;
+            }
+        }
+        return hist;
+    }
 }
